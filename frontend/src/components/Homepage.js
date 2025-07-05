@@ -218,49 +218,178 @@ function Homepage({ darkMode, language }) {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className={`feature-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-br from-green-50 to-emerald-50'}`}>
-              <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
+            {/* Feature 1 - Virtual Tours */}
+            <div className={`feature-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-br from-green-50 to-emerald-50'}`}>
+              {/* Floating Elements */}
+              <div className="absolute top-4 right-4 opacity-20">
+                <div className="w-16 h-16 bg-green-500 rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
               </div>
-              <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-green-900'}`}>
-                {t.feature1Title}
-              </h3>
-              <p className={`leading-relaxed ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
-                {t.feature1Desc}
-              </p>
+              <div className="absolute bottom-4 left-4 opacity-10">
+                <div className="w-12 h-12 bg-emerald-400 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
+              </div>
+
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                  {t.feature1Title}
+                </h3>
+                <p className={`leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
+                  {t.feature1Desc}
+                </p>
+                
+                {/* Interactive Preview */}
+                <div className={`p-4 rounded-xl mb-4 ${darkMode ? 'bg-gray-700' : 'bg-white'} border-2 border-dashed border-green-300`}>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="text-xs text-center py-4">
+                    <div className="animate-pulse">🎥 {language === 'id' ? 'Sanggar Virtual' : 'Virtual Workshop'}</div>
+                  </div>
+                </div>
+
+                <Link to="/virtual-tours" className="inline-flex items-center text-green-600 font-semibold hover:text-green-800 transition-colors">
+                  {language === 'id' ? 'Mulai Tur' : 'Start Tour'} 
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
-            {/* Feature 2 */}
-            <div className={`feature-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-br from-amber-50 to-orange-50'}`}>
-              <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                </svg>
+            {/* Feature 2 - Gamification */}
+            <div className={`feature-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-br from-amber-50 to-orange-50'}`}>
+              {/* Floating Badge Elements */}
+              <div className="absolute top-2 right-2 opacity-30">
+                <div className="w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center animate-spin" style={{animationDuration: '3s'}}>
+                  <span className="text-xs">🏆</span>
+                </div>
               </div>
-              <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-green-900'}`}>
-                {t.feature2Title}
-              </h3>
-              <p className={`leading-relaxed ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
-                {t.feature2Desc}
-              </p>
+              <div className="absolute top-8 right-8 opacity-20">
+                <div className="w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center animate-bounce">
+                  <span className="text-xs">⭐</span>
+                </div>
+              </div>
+
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                  </svg>
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                  {t.feature2Title}
+                </h3>
+                <p className={`leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
+                  {t.feature2Desc}
+                </p>
+                
+                {/* Gamification Preview */}
+                <div className={`p-4 rounded-xl mb-4 ${darkMode ? 'bg-gray-700' : 'bg-white'}`}>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-sm font-medium ${darkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                      {language === 'id' ? 'Lencana Anda' : 'Your Badges'}
+                    </span>
+                    <span className="text-xs bg-amber-100 text-amber-800 px-2 py-1 rounded-full">3/10</span>
+                  </div>
+                  <div className="flex space-x-2">
+                    <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full flex items-center justify-center text-xs animate-pulse">
+                      🏆
+                    </div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex items-center justify-center text-xs animate-pulse" style={{animationDelay: '0.5s'}}>
+                      🎨
+                    </div>
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-xs animate-pulse" style={{animationDelay: '1s'}}>
+                      🧠
+                    </div>
+                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-xs">
+                      ?
+                    </div>
+                  </div>
+                </div>
+
+                <Link to="/virtual-tours" className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-800 transition-colors">
+                  {language === 'id' ? 'Kumpulkan Lencana' : 'Collect Badges'} 
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
             </div>
 
-            {/* Feature 3 */}
-            <div className={`feature-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-br from-red-50 to-pink-50'}`}>
-              <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
+            {/* Feature 3 - Direct Impact */}
+            <div className={`feature-card p-8 rounded-3xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 relative overflow-hidden ${darkMode ? 'bg-gray-800 border-gray-700' : 'bg-gradient-to-br from-red-50 to-pink-50'}`}>
+              {/* Floating Heart Elements */}
+              <div className="absolute top-4 right-4 opacity-20">
+                <div className="animate-pulse">💖</div>
               </div>
-              <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-green-900'}`}>
-                {t.feature3Title}
-              </h3>
-              <p className={`leading-relaxed ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
-                {t.feature3Desc}
+              <div className="absolute bottom-6 right-6 opacity-15">
+                <div className="animate-bounce" style={{animationDelay: '1s'}}>❤️</div>
+              </div>
+
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className={`text-2xl font-bold mb-4 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                  {t.feature3Title}
+                </h3>
+                <p className={`leading-relaxed mb-6 ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
+                  {t.feature3Desc}
+                </p>
+                
+                {/* Impact Counter */}
+                <div className={`p-4 rounded-xl mb-4 ${darkMode ? 'bg-gray-700' : 'bg-white'}`}>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-red-600 mb-1">
+                      <span className="animate-pulse">1,247</span>
+                    </div>
+                    <div className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                      {language === 'id' ? 'Pengrajin Terbantu' : 'Craftsmen Helped'}
+                    </div>
+                  </div>
+                  
+                  <div className="mt-3 bg-red-200 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full animate-pulse" style={{width: '75%'}}></div>
+                  </div>
+                </div>
+
+                <Link to="/social-impact" className="inline-flex items-center text-red-600 font-semibold hover:text-red-800 transition-colors">
+                  {language === 'id' ? 'Lihat Dampak' : 'See Impact'} 
+                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* Gamification CTA */}
+          <div className="mt-16 text-center">
+            <div className={`inline-block p-8 rounded-3xl ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-r from-green-600 to-emerald-600'} shadow-2xl`}>
+              <div className="flex items-center justify-center space-x-4 mb-4">
+                <div className="animate-bounce">🎮</div>
+                <h3 className="text-2xl font-bold text-white">
+                  {language === 'id' ? 'Mulai Petualangan Budaya Anda!' : 'Start Your Cultural Adventure!'}
+                </h3>
+                <div className="animate-bounce" style={{animationDelay: '0.5s'}}>🏆</div>
+              </div>
+              <p className="text-green-100 mb-6 max-w-2xl">
+                {language === 'id' ? 
+                  'Kumpulkan lencana, pelajari tradisi, dan buat dampak nyata untuk para pengrajin!' :
+                  'Collect badges, learn traditions, and make real impact for craftsmen!'
+                }
               </p>
+              <Link to="/virtual-tours" className="bg-white text-green-600 px-8 py-4 rounded-2xl font-semibold hover:bg-green-50 transform hover:scale-105 transition-all duration-300 shadow-lg">
+                {language === 'id' ? 'Mulai Sekarang' : 'Start Now'}
+              </Link>
             </div>
           </div>
         </div>

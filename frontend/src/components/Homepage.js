@@ -21,7 +21,7 @@ function Homepage({ darkMode, language }) {
 
   const translations = {
     id: {
-      heroTitle: "Bukan Sekadar Kerajinan, Ini Warisan Budaya dari Jantung Kalimantan",
+      heroTitle: "Bukan Sekadar Kerajinan, Ini Warisan Budaya dari Kalimantan Utara",
       heroSubtitle: "Jelajahi, alami, dan miliki potongan jiwa Kalimantan Utara melalui tur virtual interaktif dan gamifikasi budaya yang memukau",
       exploreWorks: "Jelajahi Karya",
       followLaunch: "Ikuti Peluncuran Kami",
@@ -49,7 +49,7 @@ function Homepage({ darkMode, language }) {
       registerNow: "Daftar Sekarang"
     },
     en: {
-      heroTitle: "Not Just Crafts, This is Cultural Heritage from the Heart of Kalimantan",
+      heroTitle: "Not Just Crafts, This is Cultural Heritage from Kalimantan",
       heroSubtitle: "Explore, experience, and own a piece of North Kalimantan's soul through immersive virtual tours and captivating cultural gamification",
       exploreWorks: "Explore Works",
       followLaunch: "Follow Our Launch",

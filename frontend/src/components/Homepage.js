@@ -116,13 +116,91 @@ function Homepage({ darkMode, language }) {
       {/* Problem & Solution Section */}
       <section className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-b from-green-50 to-white'}`}>
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${darkMode ? 'text-white' : 'text-green-900'}`}>
-              {t.bridgeTitle}
-            </h2>
-            <p className={`text-xl mb-12 leading-relaxed ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
-              {t.bridgeDesc}
-            </p>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className={`text-4xl md:text-5xl font-bold mb-8 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                {t.bridgeTitle}
+              </h2>
+              <p className={`text-xl mb-12 leading-relaxed max-w-4xl mx-auto ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
+                {t.bridgeDesc}
+              </p>
+            </div>
+
+            {/* Visual Bridge Representation */}
+            <div className="grid md:grid-cols-3 gap-8 items-center">
+              {/* Traditional Side */}
+              <div className={`text-center p-8 rounded-3xl ${darkMode ? 'bg-gray-700' : 'bg-white shadow-lg'}`}>
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                  {language === 'id' ? 'Pengrajin Tradisional' : 'Traditional Craftsmen'}
+                </h3>
+                <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
+                  {language === 'id' ? 
+                    'Keahlian turun temurun yang kurang dihargai' : 
+                    'Inherited skills that are undervalued'
+                  }
+                </p>
+                <div className="mt-4 flex justify-center space-x-2">
+                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-gray-600' : 'bg-red-300'}`}></div>
+                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-gray-600' : 'bg-red-300'}`}></div>
+                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-gray-600' : 'bg-red-300'}`}></div>
+                </div>
+              </div>
+
+              {/* KAYANA Bridge */}
+              <div className="text-center relative">
+                <div className={`absolute inset-0 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full opacity-20 animate-pulse`}></div>
+                <div className="relative z-10 p-8">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center shadow-2xl">
+                    <span className="text-white font-bold text-2xl">K</span>
+                  </div>
+                  <h3 className={`text-2xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                    KAYANA
+                  </h3>
+                  <p className={`text-sm font-medium ${darkMode ? 'text-green-300' : 'text-green-600'}`}>
+                    {language === 'id' ? 'Story-Commerce Platform' : 'Story-Commerce Platform'}
+                  </p>
+                  
+                  {/* Bridge Animation */}
+                  <div className="mt-6 flex justify-center">
+                    <div className="flex space-x-1">
+                      <div className="w-3 h-1 bg-green-500 rounded animate-pulse" style={{animationDelay: '0ms'}}></div>
+                      <div className="w-3 h-1 bg-green-500 rounded animate-pulse" style={{animationDelay: '200ms'}}></div>
+                      <div className="w-3 h-1 bg-green-500 rounded animate-pulse" style={{animationDelay: '400ms'}}></div>
+                      <div className="w-3 h-1 bg-green-500 rounded animate-pulse" style={{animationDelay: '600ms'}}></div>
+                      <div className="w-3 h-1 bg-green-500 rounded animate-pulse" style={{animationDelay: '800ms'}}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modern Market Side */}
+              <div className={`text-center p-8 rounded-3xl ${darkMode ? 'bg-gray-700' : 'bg-white shadow-lg'}`}>
+                <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
+                  </svg>
+                </div>
+                <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-green-900'}`}>
+                  {language === 'id' ? 'Pasar Modern' : 'Modern Market'}
+                </h3>
+                <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-green-700'}`}>
+                  {language === 'id' ? 
+                    'Mencari otentisitas dan cerita di balik produk' : 
+                    'Seeking authenticity and stories behind products'
+                  }
+                </p>
+                <div className="mt-4 flex justify-center space-x-2">
+                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-green-400' : 'bg-green-400'}`}></div>
+                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-green-400' : 'bg-green-400'}`}></div>
+                  <div className={`w-2 h-2 rounded-full ${darkMode ? 'bg-green-400' : 'bg-green-400'}`}></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
